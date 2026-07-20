@@ -1,0 +1,31 @@
+{:schema "kotoba.repository-role-rules.v0"
+ :rules
+ [{:prefix "loop-"
+   :role :continuous-orchestrator
+   :must [:observe :evaluate :decide :act :record-evidence]
+   :must-not [:own-domain-scoring-truth :bind-to-one-ci-provider]
+   :examples ["loop-ux-kaizen"]}
+  {:prefix "skill-"
+   :role :agent-instruction-package
+   :must [:define-agent-procedure :declare-inputs :declare-outputs]
+   :must-not [:require-resident-runner :own-ci-state]
+   :examples ["skill-ux-kaizen"]}
+  {:prefix "action-"
+   :role :github-action-adapter
+   :must [:expose-action-yml :pin-external-revisions :emit-check-result]
+   :must-not [:own-domain-contract :hide-provider-neutral-core]
+   :examples ["action-ux-kaizen"]}
+  {:prefix nil
+   :role :library
+   :must [:provide-reusable-contract]
+   :examples ["design-quality" "hinshitsu" "browser-agent"]}]
+ :composition
+ {:authority "loop-*"
+  :adapters ["action-*" "skill-*"]
+  :libraries ["design-quality" "hinshitsu" "browser-agent" "browser-use"]}
+ :github
+ {:required-permissions {:contents :read}
+  :pull-request-gate true
+  :schedule-supported true
+  :baseline-promotion :explicit-human-action
+  :missing-evidence :fail-closed}}
