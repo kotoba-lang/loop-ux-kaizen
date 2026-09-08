@@ -4,7 +4,7 @@
   Browser/model/process I/O belongs to host adapters. This namespace owns the
   scenario, evidence and gate semantics shared by local runners, GitHub
   Actions and agent skills."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def scenario-schema "kotoba.loop.ux-kaizen.scenario.v0")
 (def evidence-schema "kotoba.loop.ux-kaizen.evidence.v0")
