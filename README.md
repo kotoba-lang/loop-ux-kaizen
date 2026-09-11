@@ -50,6 +50,6 @@ CI-provider neutral.
 ## Verify
 
 ```bash
-clojure -M:test
-clojure -M:lint
+kbb -M:test
+kbb -M:lint
 ```

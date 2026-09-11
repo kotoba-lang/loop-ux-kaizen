@@ -26,6 +26,6 @@ runs:
     - name: Deterministic UX gate
       shell: bash
       run: >-
-        bb --classpath .ux-kaizen/design-quality/src
+        kbb --classpath .ux-kaizen/design-quality/src
         -m design-quality.cli score "${{ inputs.html }}"
         --min "${{ inputs.minimum }}"
