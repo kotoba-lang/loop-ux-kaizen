@@ -43,7 +43,7 @@ port="${UX_LOOP_PORT:-4173}"
 session="ux-kaizen-${UX_LOOP_SESSION_SUFFIX:-local}"
 mkdir -p "$artifact_dir"
 
-bb --classpath "$quality_root/src" -m design-quality.cli score "$html_path" --min 95 --edn \
+kbb --classpath "$quality_root/src" -m design-quality.cli score "$html_path" --min 95 --edn \
   > "$artifact_dir/deterministic.edn"
 
 python3 -m http.server "$port" --bind 127.0.0.1 --directory "$app_root" \
